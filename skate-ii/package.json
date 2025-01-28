@@ -1,0 +1,19 @@
+{
+  "name": "skate-ii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.5",
+    "three": "^0.154.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
