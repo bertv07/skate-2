@@ -1,0 +1,76 @@
+/*font*/
+@import url("https://use.typekit.net/chb8bqk.css");
+@font-face {
+    font-family:'sprite graffiti', sans-serif ;
+    src: url(../font/SpriteGraffiti.otf);
+}
+
+body {
+  font-family: "poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url(../img/i.webp);
+    background-attachment: fixed;
+  }
+  h1{
+    text-align: center;
+    font-size: 5.9rem;
+    color: #000;
+    font-family: 'sprite graffiti', sans-serif ;
+    letter-spacing: -7px;
+  }
+  .title{
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+  }
+  .sapan{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: -10.5rem;
+    z-index: 1;
+  }
+  span{
+    font-size: 5rem;
+    color: #f6c006;
+    font-family: 'sprite graffiti', sans-serif ;
+  }
+  #design-tool {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart{
+    background-color: #d9d9d9;
+  }
+  
+  #skate-viewer {
+    width: 50%;
+    height: 100vh;
+  }
+  .color-palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .color-box {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+
+  .crear{
+    display: flex;
+    justify-content: space-around;
+  }
+  label{
+    font-size: 3rem;
+  }
+  .s{
+    background-color: #000;
+  }

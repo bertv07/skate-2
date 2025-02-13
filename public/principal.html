@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="assets/css/principal.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-bar">
+      <div class="logo">
+        <img src="assets/img/pixelcut-export.png" alt="">
+      </div>
+      <div class="pags">
+        <div class="span"></div>
+        <div class="dispo">
+          <a href="/desingns.html">Disponibles</a>
+        </div>
+        <div class="span"></div>
+        <div class="dise">
+          <a href="/create.html">Diseña</a>
+        </div>
+        <div class="span"></div>
+        <div class="contac">
+          <a href="#contac">Contáctanos</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="sn">
+    <div class="text-sn">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Somos una super empresa líder en el mercado de la patinetas y las drogas las mejores del país compren compren personalizamos las guachafitas y así les quedan bellas y como las quieren un sueño. Ubicados en Venezuela</p>
+      <span>Fundado por Gleybert</span>
+    </div>
+    <div class="img-sn">
+      <img src="./assets/img/skater.jpeg" alt="">
+    </div>
+  </section>
+  <section class="skate">
+    <div class="text-sk">
+      <h2>Skateboards</h2>
+      <span>Skateboards</span>
+    </div>
+    <div class="cards">
+      <div class="card1 card">
+        <div class="skate3d" id="skate3d-1"></div>
+        <p>name</p>
+        <div class="price">
+          <p>80$</p>
+        </div>
+      </div>
+      <div class="card2 card">
+        <div class="skate3d" id="skate3d-2"></div>
+        <p>name</p>
+        <div class="price2">
+          <p>80$</p>
+        </div>
+      </div>
+      <div class="card1 card">
+        <div class="skate3d" id="skate3d-3"></div>
+        <p>name</p>
+        <div class="price">
+          <p>80$</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="diseña">
+    <div class="img-ds">
+      <img src="./assets/img/skata.jpg" alt="">
+    </div>
+    <div class="text-ds">
+      <h3>¿NO CONSEGUISTE NINGUNA QUE SE AJUSTE A TI?</h3>
+      <p>¡HAZ TU PROPIO DISEÑO!</p>
+      <a href="/create.html">DISEÑAR</a>
+    </div>
+  </section>
+
+  <section id="contac">
+    <div class="form">
+      <div class="text-fr">
+        <h3>Contáctanos</h3>
+      </div>
+      <form action="">
+        <div class="prime">
+          <input type="text" name="name" id="name" placeholder="Nombre">
+          <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+        </div>
+        <div class="seg">
+          <input type="email" name="correo" id="correo" placeholder="Correo electrónico">
+          <input type="number" name="number" id="number" placeholder="Número de teléfono">
+        </div>
+        <div class="tercer">
+          <input type="text" name="mensaje" id="mensaje" placeholder="Mensaje">
+        </div>
+        <span></span>
+        <div class="sapn"></div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <div class="img-ct">
+      <img src="./assets/img/SKATEE.jpg" alt="">
+    </div>
+  </section>
+  <!-- Incluir scripts si es necesario -->
+   
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+  
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.144.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/"
+        }
+      }
+    </script>
+  <script src="assets/js/princi.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Diseños de Skates</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* Estilos para los diseños */
+    #designs-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    .design-item {
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diseños Guardados</h1>
+  <div id="designs-container"></div>
+  <a href="/">Volver al Diseñador</a>
+
+  <!-- Import map para Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.144.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <!-- Incluir el script de designs.js como módulo -->
+  <script src="assets/js/designs.js" type="module"></script>
+</body>
+</html>
