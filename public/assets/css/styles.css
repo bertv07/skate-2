@@ -9,10 +9,52 @@ body {
   font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background: url(../img/i.webp);
+    background: url(https://static.vecteezy.com/system/resources/previews/017/216/151/non_2x/colorful-graffiti-wall-art-background-street-art-hip-hop-urban-illustration-background-seamless-amazing-graffiti-art-background-vector.jpg);
     background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+  
+.nav-bar{
+  background-color: #000;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  gap: 20%;
+  position: fixed;
+  z-index: 3;
+}
+
+.logo img{
+  width: 20rem;
+  margin-top: -1rem;
+  margin-left: 3rem;
+}
+
+.pags{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 55%;
+}
+.pags > div > a{
+  color: #fff;
+  font-size: 2.5rem;
+  text-decoration: none;
+  font-family: "poppins", sans-serif;
+  text-transform: uppercase;
+}
+.span{
+  background-color: #fff;
+  width: 3px;
+  height: 4rem;
+}
+
+.todo{
+  padding: 10rem 0rem;
+}
+
   h1{
     text-align: center;
     font-size: 5.9rem;
@@ -37,31 +79,101 @@ body {
     font-family: 'sprite graffiti', sans-serif ;
   }
   #design-tool {
-    width: 30%;
+    width: 40%;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 50%;
+    margin-top: -2rem;
+    margin-left: 10rem;
   }
 
   .cart{
     background-color: #d9d9d9;
+    width: 36rem;
+    height: 40rem;
+    border-radius: 62px;
+    margin-left: 10rem;
   }
   
-  #skate-viewer {
-    width: 50%;
-    height: 100vh;
+#texture-upload{
+  border-radius: 42px;
+  margin-top: 1rem;
+  height: 6rem;
+  padding: 2rem;
+  background-color: #d9d9d9;
+  width: 30rem;
+}
+
+#texture-upload input[type="file"] {
+  border: none;
+  color: #333; /* Color del texto */
+  font-size: 1.2rem; /* Tamaño del texto */
+  cursor: pointer;
+  
+}
+
+#color{
+  margin-left: 3rem !important;
+}
+
+#texture-upload input[type="file"]::-webkit-file-upload-button {
+  background-color: #333; /* Color del botón de subida */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  padding: .5rem 1.5rem; /* Padding del botón */
+  cursor: pointer; /* Cursor en forma de puntero */
+  border-radius: 24px;
+}
+
+#save-design{
+  background-color: #333;
+  border: none;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding: .5rem 1.5rem;
+  border-radius: 24px;
+  cursor: pointer;
+  color: #d9d9d9;
+}
+#save-design:hover{
+  background-color: #d9d9d9;
+  color: #333;
+}
+
+#texture-upload label{
+  font-size: 2.5rem;
+}
+  #color-picker{
+    background-color: #d9d9d9;
+    height: 22rem;
+    width: 34rem;
+    border-radius: 44px;
+    padding-top: 2rem;
   }
+
+  
   .color-palette {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
-    gap: 10px;
-    margin-top: 20px;
+    grid-template-columns: repeat(6, 1fr); /* 5 columnas */
+    gap: 1rem;
+    margin: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
   .color-box {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #000;
+    width: 55px;
+    height: 55px;
+    border: none;
     cursor: pointer;
+  }
+  #color{
+    margin-left: 1rem;
+    border: none;
+    padding: 0;
+    block-size: 2rem;
+    inline-size: 5rem;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 0;
   }
 
   .crear{
@@ -70,7 +182,18 @@ body {
   }
   label{
     font-size: 3rem;
+    margin-left: 3rem;
+    font-weight: 300;
   }
   .s{
+    margin-left: 2rem;
     background-color: #000;
+    width: 80% !important;
+    height: 4px !important;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .desing-card{
+    display: flex;
   }

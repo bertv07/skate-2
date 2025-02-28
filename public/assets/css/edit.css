@@ -1,0 +1,179 @@
+
+h1{
+    padding-top: 10rem;
+    letter-spacing: -7px;
+}
+
+nav{
+    margin-top: -4rem;
+}
+
+.spa{
+    text-align: center;
+    font-size: 5.2rem;
+    color: #f6c006;
+    font-family: 'sprite graffiti', sans-serif;
+    margin-top: -10.5rem;
+    letter-spacing: -1px;
+
+}
+
+/* Estilos para el contenedor de diseños */
+#designs-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill, minmax(370px, 1fr)
+    );
+    gap: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.design-item canvas {
+  background: transparent; /* Fondo transparente para el canvas */
+}
+
+.design-item button {
+  margin-top: -1rem;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: thistle;
+  font-size: 1.5rem;
+}
+
+.design-item button:hover {
+  background-color: #ddd;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-0%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px;
+  text-align: center;
+  border-radius: 34px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal.open, .modal-overlay.open {
+  display: block;
+}
+
+.modal input[type="color"], .modal input[type="file"] {
+  margin: 10px 0;
+}
+
+.modal button {
+  margin: 5px;
+}
+
+/* Estilos para cada diseño */
+.design-item {
+width: 22rem !important;
+height: 28rem;
+border-radius: 24px;
+padding: 10px;
+text-align: center;
+background-color: #9c00f9; /* Color morado por defecto */
+margin: 1rem;
+flex-grow: 1;
+}
+
+.design-item:nth-child(odd) {
+background-color: #9c00f9; /* Morado */
+}
+
+.design-item:nth-child(even) {
+background-color: #f6c006; /* Amarillo */
+}
+
+.design-item canvas {
+background: transparent; /* Fondo transparente para el canvas */
+}
+
+
+
+@media (max-width: 950px) {
+    #designs-container {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fill, minmax(300px, 1fr)
+        );
+        gap: 1rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    .design-item{
+        width: 30vw !important;
+        height: 22rem !important;
+    }
+}
+@media (max-width: 750px) {
+    #designs-container {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fill, minmax(200px, 1fr)
+        );
+        gap: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .design-item{
+        width: 35vw !important;
+        height: 22rem !important;
+    }
+}
+@media (max-width: 480px) {
+    #designs-container {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fill, minmax(200px, 1fr)
+        );
+        gap: 1rem;
+        margin-left: 5rem;
+        margin-right: 2rem;
+    }
+    .design-item{
+        width: 45vw !important;
+        height: 22rem !important;
+    }
+}
+
+.edit-button{
+    background-color: #26b7d1 !important;
+    color: #ddd;
+    margin-right: 1rem;
+}
+
+.delete-button{
+    background-color: #f44336 !important;
+    color: #ddd;
+}
+.edit-button:hover{
+    background-color: #136c7c !important;
+    color: #ddd;
+    margin-right: 1rem;
+}
+
+.delete-button:hover{
+    background-color: #8a1f17 !important;
+    color: #ddd;
+}

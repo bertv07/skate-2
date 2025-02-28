@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const skateDesignSchema = new mongoose.Schema({
-  deckColor: { type: String, required: true },
-  textureUrl: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+  deckColor: { type: String, required: true }, // Color del deck en formato hexadecimal
+  textureUrl: { type: String, required: true }, // URL de la textura
+  createdAt: { type: Date, default: Date.now }, // Fecha de creación
 });
 
-module.exports = mongoose.model('SkateDesign', skateDesignSchema);
+// Forzar el nombre de la colección a "skateDesigns"
+module.exports = mongoose.model('SkateDesign', skateDesignSchema, 'skateDesigns');

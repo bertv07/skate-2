@@ -3,34 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ver Diseños de Skates</title>
+  <title>Diseños Guardados</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    /* Estilos para los diseños */
-    #designs-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-    }
-    .design-item {
-      background-color: #fff;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-    }
-    canvas {
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/ver.css">
 </head>
 <body>
-  <h1>Diseños Guardados</h1>
-  <div id="designs-container"></div>
-  <a href="/">Volver al Diseñador</a>
 
-  <!-- Import map para Three.js -->
+  <nav>
+    <div class="nav-bar">
+      <div class="logo">
+        <img src="assets/img/pixelcut-export.png" alt="">
+      </div>
+      <div class="pags">
+        <div class="span"></div>
+        <div class="dispo">
+          <a href="/desingns.html">Disponibles</a>
+        </div>
+        <div class="span"></div>
+        <div class="dise">
+          <a href="/create.html">Diseña</a>
+        </div>
+        <div class="span"></div>
+        <div class="contac">
+          <a href="#contac">Contáctanos</a>
+        </div>
+        <div class="span"></div>
+        <div class="contac">
+          <a href="/manage-designs.html">Edita</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="f">
+    <h1>Diseños Guardados</h1>
+    <p class="spa">Diseños Guardados</p>
+    <div class="desing-card">
+      <div id="designs-container"></div> <!-- Contenedor para los diseños -->
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Cargar Three.js como módulo ES -->
   <script type="importmap">
     {
       "imports": {
@@ -39,8 +57,6 @@
       }
     }
   </script>
-
-  <!-- Incluir el script de designs.js como módulo -->
-  <script src="assets/js/designs.js" type="module"></script>
+  <script type="module" src="assets/js/designs.js"></script>
 </body>
 </html>

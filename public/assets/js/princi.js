@@ -1,84 +1,113 @@
-// Importar Three.js y módulos necesarios
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-// Configuración de Three.js
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 2, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // alpha: true para fondo transparente
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-// Luz principal
-const light = new THREE.DirectionalLight(0xffffff, 5);
-light.position.set(1, 1, 1);
-scene.add(light);
-
-// Luz ambiente adicional
-const ambientLight = new THREE.AmbientLight(0xffffff, 5);
-scene.add(ambientLight);
-
-// Luces adicionales
-const pointLight1 = new THREE.PointLight(0xffffff, 5);
-pointLight1.position.set(50, 50, 50);
-scene.add(pointLight1);
-
-const pointLight2 = new THREE.PointLight(0xffffff, 5);
-pointLight2.position.set(-50, -50, -50);
-scene.add(pointLight2);
-
-// Cargar el modelo GLTF
+// Inicializar loaders
 const gltfLoader = new GLTFLoader();
 const textureLoader = new THREE.TextureLoader();
 
-let skates = [];
+// Función para cargar skates aleatorios desde la base de datos
+async function loadRandomSkaters() {
+  try {
+    console.log("Cargando skates aleatorios desde la API...");
 
-// Función para cargar un skate en un contenedor específico
-function loadSkate(containerId, textureUrl, deckColor) {
+    // Obtener los diseños desde la API
+    const response = await fetch('/api/designs');
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
+    const designs = await response.json();
+    console.log("Diseños cargados:", designs);
+
+    if (!designs || designs.length === 0) {
+      console.log("No hay diseños disponibles");
+      return;
+    }
+
+    // Cargar un skate aleatorio en cada contenedor
+    loadRandomSkate('skate3d-1', designs);
+    loadRandomSkate('skate3d-2', designs);
+    loadRandomSkate('skate3d-3', designs);
+  } catch (error) {
+    console.error("Error al cargar los skates aleatorios:", error);
+  }
+}
+
+// Función para cargar un skate aleatorio en un contenedor específico
+function loadRandomSkate(containerId, designs) {
   const container = document.getElementById(containerId);
   if (!container) {
     console.error(`Contenedor ${containerId} no encontrado.`);
     return;
   }
 
+  // Limpiar el contenedor
+  container.innerHTML = '';
+
   const canvas = document.createElement('canvas');
   container.appendChild(canvas);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  
-  const localScene = new THREE.Scene();
-  const localCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 2000);
-  localCamera.position.set(150, 300, 250);
-  localCamera.lookAt(20,20,20);
+  const miniRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  miniRenderer.setSize(container.clientWidth, container.clientHeight);
 
+  const miniScene = new THREE.Scene();
+  const miniCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 2000);
+
+  // Posición de la cámara
+  miniCamera.position.set(-120, 400, 300); // Posición de la cámara
+  miniCamera.lookAt(10, 0, 0); // Apuntar la cámara al centro del modelo
+
+  // Añadir luces
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  miniScene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(1, 1, 1);
+  miniScene.add(directionalLight);
+
+  // Seleccionar un diseño aleatorio
+  const randomDesign = designs[Math.floor(Math.random() * designs.length)];
+  console.log(`Skate aleatorio seleccionado para ${containerId}:`, randomDesign);
+
+  // Cargar el modelo GLTF
   gltfLoader.load('assets/models/skate.glb', function (gltf) {
     const skate = gltf.scene;
 
     // Aplicar la textura y el color
-    const texture = textureLoader.load(textureUrl);
+    const texture = textureLoader.load(randomDesign.textureUrl);
     skate.traverse(function (node) {
-      if (node.isMesh) {
+      if (node.isMesh && node.material.name === 'tabla') {
         node.material.map = texture;
-        node.material.color.set(deckColor);
+        node.material.color.set(new THREE.Color(randomDesign.deckColor));
         node.material.needsUpdate = true;
       }
     });
 
-    localScene.add(skate);
-    skates.push(skate);
+    // Crear un grupo para contener el modelo y permitir múltiples rotaciones
+    const group = new THREE.Group();
+    group.add(skate);
+    miniScene.add(group);
 
-    // Animación
-    function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(localScene, localCamera);
-    }
-    animate();
+    // Variables para la animación
+    let time = 0;
+    const speed = 0.01;
+
+    // Función de animación
+    const animateMiniSkate = () => {
+      requestAnimationFrame(animateMiniSkate);
+
+      time += speed;
+
+      // Rotar el grupo (y por ende el skateboard) en múltiples ejes
+      group.rotation.z = -time; // Rotación en Z (balanceo)
+
+      miniRenderer.render(miniScene, miniCamera);
+    };
+
+    // Iniciar animación
+    animateMiniSkate();
   });
 }
 
-
-// Cargar skates en los contenedores
-loadSkate('skate3d-1', 'assets/textures/texture.avif', '#ff0000'); // Rojo
-loadSkate('skate3d-2', 'assets/textures/texture2.jpg', '#00ff00'); // Verde
-loadSkate('skate3d-3', 'assets/textures/texture3.jpg', '#0000ff'); // Azul
+// Iniciar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', loadRandomSkaters);

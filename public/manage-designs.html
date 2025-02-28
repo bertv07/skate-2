@@ -5,48 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestionar Diseños</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    /* Estilos para el modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      width: 300px;
-      text-align: center;
-    }
+  <link rel="stylesheet" href="assets/css/edit.css">
 
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
-
-    .modal.open, .modal-overlay.open {
-      display: block;
-    }
-
-    .modal input[type="color"], .modal input[type="file"] {
-      margin: 10px 0;
-    }
-
-    .modal button {
-      margin: 5px;
-    }
-  </style>
 </head>
 <body>
-  <h1>Gestionar Diseños</h1>
+  <nav>
+    <div class="nav-bar">
+      <div class="logo">
+        <img src="assets/img/pixelcut-export.png" alt="">
+      </div>
+      <div class="pags">
+        <div class="span"></div>
+        <div class="dispo">
+          <a href="/desingns.html">Disponibles</a>
+        </div>
+        <div class="span"></div>
+        <div class="dise">
+          <a href="/create.html">Diseña</a>
+        </div>
+        <div class="span"></div>
+        <div class="contac">
+          <a href="#contac">Contáctanos</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <h1>editarDiseños</h1>
+  <p class="spa">Editar diseño</p>
+  <!-- Contenedor para el visor 3D -->
+  <div id="skate-viewer"></div>
   <div id="designs-container"></div>
   <a href="/">Volver al Diseñador</a>
 
@@ -64,15 +52,17 @@
     <button id="cancel-edit">Cancelar</button>
   </div>
 
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
 
   <script type="importmap">
     {
       "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@0.144.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/"
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/",
+        "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.7/index.js"
       }
     }
   </script>

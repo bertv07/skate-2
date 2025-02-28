@@ -1,5 +1,5 @@
 const express = require('express');
-const skateController = require('./controllers/skateController');
+const skateController = require('./controllers/skateController.js');
 
 const router = express.Router();
 
